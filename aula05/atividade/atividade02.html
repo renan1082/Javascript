@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<script>
+    let numero = Number(prompt("Digite um número:"));
+</script>
+
+<div class="container text-center mt-5">
+    <div class="row">
+
+        <!-- Adição -->
+        <div class="col-md-3 border p-3">
+            <h4 class="text-primary">Adição</h4>
+
+            <script>
+                for (let contador = 0; contador <= 10; contador++) {
+                    document.write(`${numero} + ${contador} = ${numero + contador}<br>`);
+                }
+            </script>
+        </div>
+
+        <!-- Subtração -->
+        <div class="col-md-3 border p-3">
+            <h4 class="text-danger">Subtração</h4>
+
+            <script>
+                for (let contador = 0; contador <= 10; contador++) {
+                    document.write(`${numero} - ${contador} = ${numero - contador}<br>`);
+                }
+            </script>
+        </div>
+
+        <!-- Multiplicação -->
+        <div class="col-md-3 border p-3">
+            <h4 class="text-success">Multiplicação</h4>
+
+            <script>
+                for (let contador = 0; contador <= 10; contador++) {
+                    document.write(`${numero} × ${contador} = ${numero * contador}<br>`);
+                }
+            </script>
+        </div>
+
+        <!-- Divisão -->
+        <div class="col-md-3 border p-3">
+            <h4 class="text-warning">Divisão</h4>
+
+            <script>
+                for (let contador = 1; contador <= 10; contador++) {
+                    document.write(`${numero} ÷ ${contador} = ${(numero / contador).toFixed(2)}<br>`);
+                }
+            </script>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
