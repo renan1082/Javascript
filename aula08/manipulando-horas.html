@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Relógio Digital</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      body {
+        min-height: 100vh;
+        margin: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background: linear-gradient(
+          135deg,
+          #160d25,
+          #261341,
+          #160d25
+        );
+
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      .relogio-container {
+        width: 90%;
+        max-width: 650px;
+
+        padding: 45px 30px;
+
+        text-align: center;
+
+        background: rgba(35, 18, 55, 0.9);
+
+        border: 1px solid rgba(111, 66, 193, 0.5);
+
+        border-radius: 25px;
+
+        box-shadow:
+          0 0 30px rgba(111, 66, 193, 0.2),
+          0 20px 60px rgba(0, 0, 0, 0.5);
+
+        backdrop-filter: blur(10px);
+      }
+
+      .titulo {
+        color: #b99be6;
+
+        font-size: 18px;
+
+        letter-spacing: 5px;
+
+        text-transform: uppercase;
+
+        margin-bottom: 20px;
+      }
+
+      #display {
+        color: #6f42c1;
+
+        font-size: clamp(55px, 10vw, 100px);
+
+        font-weight: 700;
+
+        letter-spacing: 5px;
+
+        text-shadow:
+          0 0 10px rgba(111, 66, 193, 0.9),
+          0 0 30px rgba(111, 66, 193, 0.6),
+          0 0 50px rgba(111, 66, 193, 0.3);
+
+        font-variant-numeric: tabular-nums;
+      }
+
+      #data {
+        margin-top: 15px;
+
+        color: #d4c2ed;
+
+        font-size: 18px;
+
+        letter-spacing: 2px;
+      }
+
+      .ponto {
+        animation: piscar 1s infinite;
+      }
+
+      @keyframes piscar {
+        0% {
+          opacity: 1;
+        }
+
+        50% {
+          opacity: 0.3;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="relogio-container">
+
+      <div class="titulo">
+        Relógio Digital
+      </div>
+
+      <div id="display">
+        00:00:00
+      </div>
+
+      <div id="data">
+        Carregando...
+      </div>
+
+    </div>
+
+    <script>
+      function relogio() {
+
+        let agora = new Date();
+
+        let hora = String(agora.getHours()).padStart(2, "0");
+        let minuto = String(agora.getMinutes()).padStart(2, "0");
+        let segundo = String(agora.getSeconds()).padStart(2, "0");
+
+        let dia = String(agora.getDate()).padStart(2, "0");
+        let mes = String(agora.getMonth() + 1).padStart(2, "0");
+        let ano = agora.getFullYear();
+
+        let relogioCompleto =
+          `${hora}<span class="ponto">:</span>${minuto}<span class="ponto">:</span>${segundo}`;
+
+        document.getElementById("display").innerHTML =
+          relogioCompleto;
+
+        document.getElementById("data").textContent =
+          `${dia}/${mes}/${ano}`;
+      }
+
+      relogio();
+
+      setInterval(relogio, 1000);
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+
+  </body>
+</html>
